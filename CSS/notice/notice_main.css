@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Lemon&display=swap");
+body {
+  height: 100vh;
+  height: 100vw;
+  background-color: rgb(249, 249, 249);
+}
+.noticeTitle {
+  width: 100%;
+  height: 20%;
+  font-family: "Lemon", serif;
+}
+.noticeTitle_Text {
+  font-size: 3vh;
+  padding: 3%;
+}
+
+.noticeMain {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+}
+.noticeMain_Area {
+  width: 80%;
+  height: 100%;
+}
+.noticeMain_topArea {
+  justify-content: space-between;
+}
+.noticeMain_topArea_title {
+  font-size: 5vh;
+}
