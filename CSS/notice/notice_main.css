@@ -1,19 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Lemon&display=swap");
 body {
   height: 100vh;
-  height: 100vw;
+  width: 100vw;
   background-color: rgb(249, 249, 249);
 }
+/* 상단 */
 .noticeTitle {
   width: 100%;
-  height: 20%;
+  height: 15%;
+}
+.noticeTitle .introInsertBtn {
   font-family: "Lemon", serif;
+  border: none;
+  padding: 3%;
+  background-color: transparent;
 }
 .noticeTitle_Text {
-  font-size: 3vh;
-  padding: 3%;
+  font-size: 2vw;
 }
 
+/* 중단 */
 .noticeMain {
   width: 100%;
   height: 80%;
@@ -26,7 +32,108 @@ body {
 }
 .noticeMain_topArea {
   justify-content: space-between;
+  height: 10%;
 }
 .noticeMain_topArea_title {
-  font-size: 5vh;
+  font-size: 4vw;
+}
+.noticeMain_topArea_searchArea {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+  width: 25vw;
+}
+.noticeMain_topArea_searchArea * {
+  border: none;
+  font-size: 1vw;
+}
+
+.noticeMain_topArea_searchArea input {
+  background-color: transparent;
+  width: 80%;
+}
+.noticeMain_topArea_searchArea button {
+  background-color: transparent;
+  width: 20%;
+  font-size: 1.5vw;
+}
+
+/* 하단 */
+.noticeMain_bottomArea {
+  width: 100%;
+  height: 80%;
+  margin-top: 5%;
+}
+
+/* 하단 좌측 */
+.noticeMain_bottomArea_list {
+  width: 20%;
+  overflow: scroll;
+}
+.noticeMain_bottomArea_list::-webkit-scrollbar {
+  display: none;
+}
+.noticeMain_bottomArea_list * {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  padding: 0%;
+}
+
+.noticeMain_bottomArea_list .list_group {
+  margin-bottom: 50px;
+}
+.noticeMain_bottomArea_list .list_group * {
+  margin: 3px 0;
+}
+.noticeMain_bottomArea_list .list_group .click {
+  color: rgb(128, 80, 187);
+}
+.noticeMain_bottomArea_list .list_group .bottomArea_textBig {
+  font-size: 2vw;
+  font-weight: bold;
+}
+.noticeMain_bottomArea_list .list_group .bottomArea_textMiddle {
+  font-size: 1.5vw;
+}
+
+/* 하단 우측 */
+.noticeMain_bottomArea_notice {
+  width: 80%;
+  border-top: 3px solid black;
+}
+.noticeMain_bottomArea_notice .noticeList {
+  margin: 40px 10px;
+  font-size: 2vw;
+  display: flex;
+  justify-content: space-between;
+}
+.noticeMain_bottomArea_notice .noticeList .eachTxt {
+  display: flex;
+  align-items: center;
+}
+.noticeMain_bottomArea_notice .noticeList .eachTxt p:first-child {
+  margin-right: 25px;
+}
+.noticeMain_bottomArea_notice .noticeList button {
+  border: none;
+  background-color: transparent;
+  font-size: 2vw;
+}
+
+.updateTxtTag {
+  resize: none;
+  font-size: 1.5vw;
+  background-color: transparent;
+  height: fit-content;
+  height: 10vw;
+}
+.updateHeadTag {
+  resize: none;
+  height: 2vw;
+  background-color: transparent;
+  font-size: 1.5vw;
 }
