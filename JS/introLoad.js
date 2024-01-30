@@ -1,9 +1,13 @@
-LoadIntro();
 const ListTag = document.querySelector(".noticeMain_bottomArea_notice");
-
+const introBtn = document.querySelector(".introBtn");
 const showInsertBlockBtn = document.querySelector(".introInsertBtn");
-showInsertBlockBtn.addEventListener("click", showInsertBlock);
+LoadIntro();
 
+introBtn.addEventListener("click", function () {
+  LoadIntro();
+  document.querySelector(".click").classList.remove("click");
+  introBtn.classList.add("click");
+});
 function LoadIntro() {
   $.ajax({
     url: "phpAJAX/introHTML.php",
@@ -12,14 +16,22 @@ function LoadIntro() {
     ListTag.innerHTML = data;
     LoadIntroSet();
   });
+  showInsertBlockBtn.removeEventListener("click", LoadIntro);
+  showInsertBlockBtn.addEventListener("click", showInsertBlock);
 }
 function LoadIntroSet() {
   const showBtns = document.querySelectorAll(".showTxt");
   console.log(showBtns);
   showBtns.forEach((showBtn) => {
     showBtn.addEventListener("click", function () {
-      showTag = showBtn.parentElement.parentElement.querySelector(".TxtTag");
-      showTag.innerHTML = "<div>dd</div>";
+      tagData = showBtn.parentElement.parentElement.querySelector(".TxtTag");
+      if (tagData.classList[1] == "hide") {
+        tagData.classList.remove("hide");
+        showBtn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+      } else {
+        tagData.classList.add("hide");
+        showBtn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+      }
     });
   });
 }
@@ -32,6 +44,8 @@ function showInsertBlock() {
     ListTag.innerHTML = data;
     LoadInsertIntroSet();
   });
+  showInsertBlockBtn.removeEventListener("click", showInsertBlock);
+  showInsertBlockBtn.addEventListener("click", LoadIntro);
 }
 
 function LoadInsertIntroSet() {

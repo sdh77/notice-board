@@ -20,7 +20,7 @@ for ($i = 0; $i < count($introductionList); $i++) {
           <div class="noticeList row">
             <div class="eachTxt">
               <p>' . ($i + 1) . '.</p>
-              <textarea class="updateHeadTag">' . $introductionList[$i] . '</textarea>
+              <textarea class="updateHeadTag" tabindex="1">' . $introductionList[$i] . '</textarea>
             </div>';
   if ($i == count($introductionList) - 1) {
     echo '<button class="addTxt">
@@ -38,9 +38,13 @@ for ($i = 0; $i < count($introductionList); $i++) {
     </div>';
 
   }
-  echo '</div>
-          <textarea class="TxtTag updateTxtTag">' . $introductionTxt[$i] . '</textarea>
-        </div>';
+  echo '</div>';
+  if ($i == count($introductionList) - 1) {
+    echo '<textarea class="TxtTag updateTxtTag" tabindex="2">' . $introductionTxt[$i] . '</textarea>';
+  } else {
+    echo '<textarea class="TxtTag updateTxtTag">' . $introductionTxt[$i] . '</textarea>';
+  }
+  echo '</div>';
 }
 pg_Close($conn);
 

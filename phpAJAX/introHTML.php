@@ -22,7 +22,7 @@ for ($i = 0; $i < count($introductionList); $i++) {
               <i class="fa-solid fa-chevron-down"></i>
             </button>
           </div>
-          <div class="TxtTag">' . $introductionTxt[$i] . '</div>
+          <div class="TxtTag hide">' . $introductionTxt[$i] . '</div>
         </div>';
 }
 pg_Close($conn);

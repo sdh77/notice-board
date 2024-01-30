@@ -30,15 +30,15 @@
       <div class=" noticeMain_bottomArea row">
         <div class="noticeMain_bottomArea_list colum">
           <div class="list_group colum">
-            <button class="bottomArea_textBig click">
+            <button class="bottomArea_textBig click introBtn">
               인사말
             </button>
           </div>
           <div class="list_group colum">
-            <p class="bottomArea_textBig">서비스 문의</p>
-            <button class="bottomArea_textMiddle">전체</button>
-            <button class="bottomArea_textMiddle">1</button>
-            <button class="bottomArea_textMiddle">2p</button>
+            <p class="bottomArea_textBig">Q&A</p>
+            <button class="bottomArea_textMiddle AllQnA">전체</button>
+            <button class="bottomArea_textMiddle">업무</button>
+            <button class="bottomArea_textMiddle">질문</button>
           </div>
           <div class="list_group colum">
             <p class="bottomArea_textBig">예약 문의</p>
@@ -54,7 +54,7 @@
   </div>
 
   <script src="JS/introLoad.js"></script>
-  <!-- <script src="JS/introInsert.js"></script> -->
+  <script src="JS/QnALoad.js"></script>
 
 </body>
 
