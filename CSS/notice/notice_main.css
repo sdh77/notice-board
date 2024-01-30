@@ -2,7 +2,7 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-color: rgb(249, 249, 249);
+  background-color: var(--main-background-color);
 }
 /* 상단 */
 .noticeTitle {
@@ -90,7 +90,8 @@ body {
   margin: 3px 0;
 }
 .noticeMain_bottomArea_list .list_group .click {
-  color: rgb(128, 80, 187);
+  font-weight: bold;
+  color: var(--main-click-color);
 }
 .noticeMain_bottomArea_list .list_group .bottomArea_textBig {
   font-size: 2vw;
