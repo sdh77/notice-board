@@ -1,14 +1,30 @@
 AllQnABtn = document.querySelector(".AllQnA");
 AllQnABtn.addEventListener("click", function () {
-  loadAllQnA();
+  loadAllQnA("all");
   document.querySelector(".click").classList.remove("click");
   AllQnABtn.classList.add("click");
 });
 
-function loadAllQnA() {
+workQnABtn = document.querySelector(".workQnA");
+workQnABtn.addEventListener("click", function () {
+  loadAllQnA("업무");
+  document.querySelector(".click").classList.remove("click");
+  workQnABtn.classList.add("click");
+});
+ectQnABtn = document.querySelector(".ectQnA");
+ectQnABtn.addEventListener("click", function () {
+  loadAllQnA("질문");
+  document.querySelector(".click").classList.remove("click");
+  ectQnABtn.classList.add("click");
+});
+
+function loadAllQnA(mode) {
   $.ajax({
     url: "phpAJAX/QnA_HTML.php",
     type: "post",
+    data: {
+      mode: mode,
+    },
   }).done(function (data) {
     ListTag.innerHTML = data;
     addDataSend();

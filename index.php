@@ -37,8 +37,8 @@
           <div class="list_group colum">
             <p class="bottomArea_textBig">Q&A</p>
             <button class="bottomArea_textMiddle AllQnA">전체</button>
-            <button class="bottomArea_textMiddle">업무</button>
-            <button class="bottomArea_textMiddle">질문</button>
+            <button class="bottomArea_textMiddle workQnA">업무</button>
+            <button class="bottomArea_textMiddle  ectQnA">질문</button>
           </div>
           <div class="list_group colum">
             <p class="bottomArea_textBig">예약 문의</p>

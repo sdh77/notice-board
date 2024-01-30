@@ -1,3 +1,7 @@
+.QnAList {
+  justify-content: space-between;
+}
+
 .QnA_Tag {
   position: absolute;
   right: 50px;

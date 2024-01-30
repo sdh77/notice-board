@@ -1,6 +1,11 @@
 <?php
 include("../DBconnect.php");
-$searchSql = "select * from question";
+$mode = $_POST["mode"];
+if ($mode == "all")
+  $searchSql = "select * from question";
+else
+  $searchSql = "select * from question where division = '" . $mode . "'";
+
 $result = pg_query($conn, $searchSql);
 $QnAList = [];
 $QnAWriterList = [];
@@ -10,9 +15,27 @@ while ($QnAData = pg_fetch_array($result, NULL, PGSQL_ASSOC)) {
   array_push($QnAWriterList, $QnAData['writer']);
   array_push($QnAPrimaryKey, $QnAData['id']);
 }
-for ($i = 0; $i <= count($QnAData); $i++) {
-  echo $QnAList[$i] . $QnAWriterList[$i] . $QnAPrimaryKey[$i];
-
+if (count($QnAList) == 0) {
+  echo "";
+} else {
+  for ($i = 0; $i <= count($QnAData); $i++) {
+    echo '<div class="colum">
+  <div class="noticeList row">
+    <div class="eachTxt">
+        <p>' . ($i + 1) . '.</p>
+        <p>' . $QnAList[$i] . '</p>
+        <p class="hide">' . $QnAPrimaryKey[$i] . '</p>
+    </div>
+    <div class="row">
+      <p class="center">' . $QnAWriterList[$i] . '</p>
+      <button class="showTxt">
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+  <div class="TxtTag hide"></div>
+</div>';
+  }
 }
 echo '<div class="QnA_Tag">
   <div class="QnA_inputArea center hide">
