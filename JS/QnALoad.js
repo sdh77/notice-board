@@ -1,29 +1,30 @@
 AllQnABtn = document.querySelector(".AllQnA");
 AllQnABtn.addEventListener("click", function () {
-  loadAllQnA("all");
+  loadQnA("전체", "-1");
   document.querySelector(".click").classList.remove("click");
   AllQnABtn.classList.add("click");
 });
 
 workQnABtn = document.querySelector(".workQnA");
 workQnABtn.addEventListener("click", function () {
-  loadAllQnA("업무");
+  loadQnA("업무", "-1");
   document.querySelector(".click").classList.remove("click");
   workQnABtn.classList.add("click");
 });
 ectQnABtn = document.querySelector(".ectQnA");
 ectQnABtn.addEventListener("click", function () {
-  loadAllQnA("질문");
+  loadQnA("질문", "-1");
   document.querySelector(".click").classList.remove("click");
   ectQnABtn.classList.add("click");
 });
 
-function loadAllQnA(mode) {
+function loadQnA(mode, questionPrimaryKey) {
   $.ajax({
     url: "phpAJAX/QnA_HTML.php",
     type: "post",
     data: {
       mode: mode,
+      questionPrimaryKey: questionPrimaryKey,
     },
   }).done(function (data) {
     ListTag.innerHTML = data;
@@ -40,6 +41,26 @@ function loadAllQnA(mode) {
         QnAAddBtn.querySelector(".fa-plus").classList.remove("close");
       }
     });
+    showBtnSet();
+    loadAnswerBtn();
+  });
+}
+function showBtnSet() {
+  const showBtns = document.querySelectorAll(".showTxt");
+  showBtns.forEach((showBtn) => {
+    showBtn.addEventListener("click", function () {
+      tagData =
+        showBtn.parentElement.parentElement.parentElement.querySelector(
+          ".TxtTag"
+        );
+      if (tagData.classList[2] == "hide") {
+        tagData.classList.remove("hide");
+        showBtn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+      } else {
+        tagData.classList.add("hide");
+        showBtn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+      }
+    });
   });
 }
 
@@ -50,7 +71,7 @@ function addDataSend() {
     const questionData = document.querySelector(".QnA_inputArea_question");
     const divisionData = document.querySelector(".QnA_inputArea_division");
     $.ajax({
-      url: "phpAJAX/insertQnA.php",
+      url: "phpAJAX/insertQuestion.php",
       type: "post",
       data: {
         question: questionData.value,
@@ -65,3 +86,35 @@ function addDataSend() {
 setTimeout(function () {
   AllQnABtn.click();
 }, 300);
+
+function loadAnswerBtn() {
+  answerRegistrations = document.querySelectorAll(".TxtTagAnswer_Button ");
+  answerRegistrations.forEach(function (answerRegistration) {
+    answerRegistration.addEventListener("click", function () {
+      const questionPrimaryKey =
+        answerRegistration.parentElement.parentElement.parentElement.querySelector(
+          ".questionPrimaryKey"
+        ).innerHTML;
+      const answer = answerRegistration.parentElement.querySelector(
+        ".TxtTagAnswer_Input"
+      ).value;
+      const writer = document.querySelector(".noticeTitle_Text").innerHTML;
+      $.ajax({
+        url: "phpAJAX/insertAnswer.php",
+        type: "post",
+        data: {
+          questionPrimaryKey: questionPrimaryKey,
+          answer: answer,
+          writer: writer,
+        },
+      }).done(function (data) {
+        alert(data);
+        setTimeout(function () {
+          const mode = document.querySelector(".click").innerHTML;
+          console.log(mode);
+          loadQnA(mode, questionPrimaryKey);
+        }, 200);
+      });
+    });
+  });
+}

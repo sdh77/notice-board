@@ -1,39 +1,65 @@
 <?php
 include("../DBconnect.php");
 $mode = $_POST["mode"];
-if ($mode == "all")
+$requestPrimaryKey = $_POST["questionPrimaryKey"];
+if ($mode == "전체")
   $searchSql = "select * from question";
 else
   $searchSql = "select * from question where division = '" . $mode . "'";
 
-$result = pg_query($conn, $searchSql);
-$QnAList = [];
-$QnAWriterList = [];
-$QnAPrimaryKey = [];
-while ($QnAData = pg_fetch_array($result, NULL, PGSQL_ASSOC)) {
-  array_push($QnAList, $QnAData['question']);
-  array_push($QnAWriterList, $QnAData['writer']);
-  array_push($QnAPrimaryKey, $QnAData['id']);
+$questionDatas = pg_query($conn, $searchSql);
+$questionList = [];
+$questionWriterList = [];
+$questionPrimaryKey = [];
+while ($questionData = pg_fetch_array($questionDatas, NULL, PGSQL_ASSOC)) {
+  array_push($questionList, $questionData['question']);
+  array_push($questionWriterList, $questionData['writer']);
+  array_push($questionPrimaryKey, $questionData['id']);
 }
-if (count($QnAList) == 0) {
+
+if (count($questionList) == 0) {
   echo "";
 } else {
-  for ($i = 0; $i <= count($QnAData); $i++) {
+  for ($i = 0; $i <= count($questionList) - 1; $i++) {
     echo '<div class="colum">
   <div class="noticeList row">
     <div class="eachTxt">
         <p>' . ($i + 1) . '.</p>
-        <p>' . $QnAList[$i] . '</p>
-        <p class="hide">' . $QnAPrimaryKey[$i] . '</p>
+        <p>' . $questionList[$i] . '</p>
+        <p class="questionPrimaryKey hide">' . $questionPrimaryKey[$i] . '</p>
     </div>
     <div class="row">
-      <p class="center">' . $QnAWriterList[$i] . '</p>
-      <button class="showTxt">
-        <i class="fa-solid fa-chevron-down"></i>
-      </button>
+      <p class="center">' . $questionWriterList[$i] . '</p>
+      <button class="showTxt">';
+
+    if ((int) $requestPrimaryKey == $questionPrimaryKey[$i]) {
+      echo '<i class="fa-solid fa-chevron-up"></i>';
+    } else {
+      echo '<i class="fa-solid fa-chevron-down"></i>';
+    }
+    echo '</button>
     </div>
+  </div>';
+    if ((int) $requestPrimaryKey == $questionPrimaryKey[$i]) {
+      echo '<div class="TxtTag colum">';
+    } else {
+      echo '<div class="TxtTag colum hide">';
+    }
+    echo '<div class="colum">';
+    $searchAnswerSql = "select * from answer where questionid = " . $questionPrimaryKey[$i];
+    $answerDatas = pg_query($conn, $searchAnswerSql);
+    while ($answerData = pg_fetch_array($answerDatas, NULL, PGSQL_ASSOC)) {
+      echo '<div class="row">
+      <p>' . $answerData['writer'] . ' :</p>
+        <p> ' . $answerData['answer'] . '</p>
+        </div>';
+    }
+    echo '</div>
+  <div class="TxtTagAnswer">
+    <input class="TxtTagAnswer_Input" placeholder="댓글을 남겨주세요"></input>
+    <button class="TxtTagAnswer_Button" >등록</button>
   </div>
-  <div class="TxtTag hide"></div>
+  </div>
 </div>';
   }
 }
