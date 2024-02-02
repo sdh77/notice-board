@@ -21,6 +21,7 @@ if (count($questionList) == 0) {
   echo "";
 } else {
   for ($i = 0; $i <= count($questionList) - 1; $i++) {
+    $cnt = 0;
     echo '<div class="colum">
   <div class="noticeList row">
     <div class="eachTxt">
@@ -53,6 +54,7 @@ if (count($questionList) == 0) {
       <p>' . $answerData['writer'] . ' :</p>
         <p> ' . $answerData['answer'] . '</p>
         </div>';
+      $cnt++;
     }
     echo '</div>
   <div class="TxtTagAnswer">
@@ -60,6 +62,7 @@ if (count($questionList) == 0) {
     <button class="TxtTagAnswer_Button" >등록</button>
   </div>
   </div>
+  <div class="noticeList_answerCnt">댓글수: ' . $cnt . '개</div>
 </div>';
   }
 }

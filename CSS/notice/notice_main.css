@@ -106,6 +106,10 @@ body {
   width: 80%;
   border-top: 3px solid black;
 }
+.noticeMain_bottomArea_notice .colum {
+  position: relative;
+}
+
 .noticeMain_bottomArea_notice .noticeList {
   margin: 40px 10px;
   font-size: 2vw;

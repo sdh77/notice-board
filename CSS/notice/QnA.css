@@ -96,3 +96,9 @@
   background-color: transparent;
   font-size: 2vh;
 }
+
+.noticeList_answerCnt {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
