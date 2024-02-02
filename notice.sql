@@ -18,4 +18,13 @@ CREATE TABLE "answer" (
   "writer" varchar(31)
 );
 
+CREATE TABLE "Board" (
+  "id" SERIAL PRIMARY KEY,
+  "title" varchar(31),
+  "bodytext" varchar(4095),
+  "writer" varchar(31),
+  "division" varchar(31),
+  "createdate" TIMESTAMP DEFAULT (CURRENT_TIMESTAMP)
+);
+
 ALTER TABLE "answer" ADD FOREIGN KEY ("questionid") REFERENCES "question" ("id");

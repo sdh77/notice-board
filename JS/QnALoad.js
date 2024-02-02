@@ -83,9 +83,6 @@ function addDataSend() {
     });
   });
 }
-setTimeout(function () {
-  AllQnABtn.click();
-}, 300);
 
 function loadAnswerBtn() {
   answerRegistrations = document.querySelectorAll(".TxtTagAnswer_Button ");

@@ -14,13 +14,14 @@ function LoadIntro() {
     type: "post",
   }).done(function (data) {
     ListTag.innerHTML = data;
-    showBtnSet();
+    LoadIntroSet();
   });
   showInsertBlockBtn.removeEventListener("click", LoadIntro);
   showInsertBlockBtn.addEventListener("click", showInsertBlock);
 }
-function showBtnSet() {
+function LoadIntroSet() {
   const showBtns = document.querySelectorAll(".showTxt");
+  console.log(showBtns);
   showBtns.forEach((showBtn) => {
     showBtn.addEventListener("click", function () {
       tagData = showBtn.parentElement.parentElement.querySelector(".TxtTag");

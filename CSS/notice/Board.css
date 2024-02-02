@@ -1,0 +1,10 @@
+.board_enrollBtn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  font-size: 1.5vh;
+  background-color: var(--main-addBtn-color);
+  padding: 10px;
+  border-radius: 15px;
+}

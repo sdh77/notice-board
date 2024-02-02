@@ -4,8 +4,9 @@
 @import "component/row_col.css";
 @import "notice/notice_main.css";
 @import "notice/QnA.css";
+@import "notice/Board.css";
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
-body {
+body * {
   font-family: "Do Hyeon", sans-serif;
 }
 

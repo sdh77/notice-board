@@ -41,10 +41,9 @@
             <button class="bottomArea_textMiddle  ectQnA">질문</button>
           </div>
           <div class="list_group colum">
-            <p class="bottomArea_textBig">예약 문의</p>
-            <button class="bottomArea_textMiddle">1</button>
-            <button class="bottomArea_textMiddle">2</button>
-            <button class="bottomArea_textMiddle">3</button>
+            <p class="bottomArea_textBig">게시판</p>
+            <button class="bottomArea_textMiddle hobbyBoard">취미</button>
+            <button class="bottomArea_textMiddle studyBoard">공부 현황</button>
           </div>
         </div>
         <div class="noticeMain_bottomArea_notice">
@@ -55,6 +54,7 @@
 
   <script src="JS/introLoad.js"></script>
   <script src="JS/QnALoad.js"></script>
+  <script src="JS/boardLoad.js"></script>
 
 
 </body>
