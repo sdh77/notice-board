@@ -11,5 +11,6 @@ if ($writer != "" and $question != "") {
 } else {
   echo ("정보를 모두 입력해주세요");
 }
+pg_Close($conn);
 
 ?>

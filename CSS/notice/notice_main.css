@@ -10,12 +10,12 @@ body {
   height: 15%;
 }
 .noticeTitle .introInsertBtn {
-  font-family: "Lemon", serif;
   border: none;
   padding: 3%;
   background-color: transparent;
 }
 .noticeTitle_Text {
+  font-family: "Lemon", serif;
   font-size: 2vw;
 }
 

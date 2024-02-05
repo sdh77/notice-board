@@ -17,6 +17,27 @@ function loadBoard(mode) {
     },
   }).done(function (data) {
     ListTag.innerHTML = data;
+    addBoardBtn = document.querySelector(".board_enrollBtn");
+    addBoardBtn.addEventListener("click", function () {
+      location.href = "addBoard.html";
+    });
+    showBtns = document.querySelectorAll(".showTxt");
+    console.log(showBtns);
+    showBtns.forEach((showBtn) => {
+      showBtn.addEventListener("click", function () {
+        tagData =
+          showBtn.parentElement.parentElement.parentElement.querySelector(
+            ".TxtTag"
+          );
+        if (tagData.classList[2] == "hide") {
+          tagData.classList.remove("hide");
+          showBtn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+        } else {
+          tagData.classList.add("hide");
+          showBtn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+        }
+      });
+    });
   });
 }
 

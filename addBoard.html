@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 작성</title>
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+  <div class="boardTitle">
+    <p class="boardTitle_Text">shin7773</p>
+    <label class="boardTitle_enrolBtn" for="enroleBtn">
+      <p>발행</p>
+    </label>
+    </button>
+  </div>
+  <form class="boardTextArea" action="phpAJAX/insertBoard.php" method="post">
+    <div class="boardTextArea_top">
+      <div class="boardTextArea_top_division row">
+        <p>작성자</p>
+        <input type="text" value="shin7773" class="boardTextArea_writer" name="writer" />
+      </div>
+      <div class="boardTextArea_top_division row">
+        <p>구분</p>
+        <select class="boardTextArea_division" name="division">
+          <option>
+            취미
+          </option>
+          <option>
+            공부
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="boardTextArea_mainArea">
+      <input class="boardTextArea_mainArea_title" placeholder="제목" name="title" />
+      <textarea class="boardTextArea_mainArea_body" placeholder="내용을 입력해주세요" name="bodyText"></textarea>
+    </div>
+    <button type="submit" class="hide" id="enroleBtn"></button>
+  </form>
+</body>
+<script src="JS/enroleBoardBtn.js"></script>
+
+</html>

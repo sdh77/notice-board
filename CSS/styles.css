@@ -5,6 +5,7 @@
 @import "notice/notice_main.css";
 @import "notice/QnA.css";
 @import "notice/Board.css";
+@import "notice/boardInner.css";
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
 body * {
   font-family: "Do Hyeon", sans-serif;
@@ -15,6 +16,7 @@ button {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   outline: none;
 }

@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Lemon&display=swap");
+.boardTitle {
+  width: 100%;
+  height: 5%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.boardTitle_Text {
+  font-family: "Lemon", serif;
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+  font-size: 2vh;
+}
+.boardTitle_enrolBtn {
+  background-color: var(--main-addBtn-color);
+  border-radius: 20px;
+  width: 10%;
+  height: 70%;
+  font-size: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.boardTextArea {
+  width: 100%;
+  height: 95%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.boardTextArea_top {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boardTextArea_top .boardTextArea_top_writer {
+  align-items: center;
+}
+.boardTextArea_top_writer .boardTextArea_writer {
+  border: none;
+}
+.boardTextArea_top .boardTextArea_top_division {
+  align-items: center;
+  height: fit-content;
+}
+.boardTextArea_top .boardTextArea_top_division * {
+  font-size: 3vh;
+  margin: 0 15px 0 0;
+}
+.boardTextArea_top .boardTextArea_division {
+  border: none;
+  background-color: transparent;
+  appearance: none;
+  text-align-last: center;
+}
+.boardTextArea_mainArea {
+  width: 80%;
+  height: 90%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.boardTextArea_mainArea .boardTextArea_mainArea_title {
+  border-width: 0 0 1.5px 0;
+  font-size: 5vh;
+  width: 80%;
+  height: 15%;
+  margin: 0 10%;
+}
+.boardTextArea_mainArea .boardTextArea_mainArea_body {
+  border: none;
+  margin-top: 5%;
+  width: 80%;
+  font-size: 2.5vh;
+  resize: none;
+  height: 80%;
+}

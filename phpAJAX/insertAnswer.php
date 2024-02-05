@@ -11,5 +11,6 @@ if ($answer == "") {
   pg_query($conn, $insertSql);
   echo "댓글을 등록했습니다.";
 }
+pg_Close($conn);
 
 ?>
